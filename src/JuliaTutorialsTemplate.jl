@@ -16,6 +16,7 @@ function copy_bindoutputs()
         name, _ = splitext(file)
         from_dir = joinpath(NOTEBOOK_DIR, name)
         to_dir = joinpath(PKGDIR, "__site", name)
+        mkpath(to_dir)
         # Manually copying the files inside `from_dir` because Franklin creates an `index.html`.
         for indir in readdir(from_dir)
             from = joinpath(from_dir, indir)
