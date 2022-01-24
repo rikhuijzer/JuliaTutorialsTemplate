@@ -1,7 +1,7 @@
 :root {
   --black: hsf(0, 0%, 5%);
   --background: hsl(0, 0%, 100%);
-  --block-background: hsl(0, 0%, 94%);
+  --block-background: hsl(0, 0%, 96%);
   --output-background: hsl(0, 0%, 98%);
 }
 
@@ -29,12 +29,25 @@ ul {
     width: 14rem !important;
 }
 
+@font-face {
+    font-family: JuliaMono-Regular;
+    src: url("https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.042/JuliaMono-Regular.woff2");
+}
+
+pre {
+    font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono;
+}
+
+code {
+    font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono;
+}
+
 pre code {
-    background: var(--block-background);
-    color: var(--black);
-    display: block;
-    padding: 0.5rem;
-    overflox-x: auto;
+    background: var(--block-background) !important;
+    overflow: auto !important;
+    border: 1px solid #dbdbdb;
+    white-space: pre;
+    word-wrap: normal;
 }
 
 th, td, tr {
