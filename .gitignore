@@ -1,0 +1,15 @@
+__site/
+_rss/
+.DS_Store
+franklin
+franklin.pub
+node_modules/
+package.json
+package-lock.json
+
+Manifest.toml
+_assets/og-image/
+**/*.log
+**/*.txt
+notebooks/**/*.html
+**/_tmp_*.jl

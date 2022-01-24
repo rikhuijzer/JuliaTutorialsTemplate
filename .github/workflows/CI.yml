@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  BuildAndDeploy:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+
+    - uses: julia-actions/setup-julia@v1
+    - uses: julia-actions/cache@v1
+
+    # This step is for developing only.
+    - run: julia --project -e 'using Pkg;
+        Pkg.add(url="https://github.com/rikhuijzer/PlutoStaticHTML.jl#main")'
+
+    - uses: julia-actions/julia-buildpkg@latest
+
+    - name: Build notebooks
+      run: julia --project -e '
+        using JuliaTutorialsTemplate; build_tutorials()'
+      env:
+        JULIA_NUM_THREADS: '2'
+
+    - name: Build site
+      run: julia --project -e '
+        using Franklin; optimize(; fail_on_warning=true, minify=false)'
+
+    - name: Deploy to secondary branch
+      if: ${{ github.event_name != 'pull_request' }}
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./__site
+
