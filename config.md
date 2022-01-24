@@ -1,6 +1,3 @@
-<!--
-Add here global page variables to use throughout your website.
--->
 +++
 author = "Rik Huijzer"
 mintoclevel = 2

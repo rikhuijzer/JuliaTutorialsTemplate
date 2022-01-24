@@ -29,7 +29,7 @@ ul {
     width: 14rem !important;
 }
 
-code {
+pre code {
     background: var(--block-background);
     color: var(--black);
     display: block;
@@ -44,7 +44,7 @@ th, td, tr {
 }
 
 th, td {
-    padding: 0.2rem;
+    padding: 0.4rem;
 }
 
 th {
@@ -56,6 +56,8 @@ table {
     line-height: 1.2em;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .context {
@@ -64,4 +66,9 @@ table {
 
 h2 {
     margin-top: 3rem;
+}
+
+#copyright {
+    padding-top: 4rem;
+    padding-left: 0px;
 }

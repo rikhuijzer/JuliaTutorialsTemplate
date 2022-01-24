@@ -10,11 +10,22 @@ begin
     using PlutoUI
 end
 
+# ╔═╡ 0e4cf5bf-b584-4bcb-a512-c925b1cc37a7
+# hideall
+title = "Data manipulation";
+
+# ╔═╡ 4bc6d576-2c37-4ad0-a866-de8bbc2a32c0
+"""
++++
+title = "$title"
++++
+""" |> Base.Text
+
 # ╔═╡ 6b053af4-cc52-4895-9fb2-a068dc81030b
 md"""
-# Data manipulation
+# $title
 
-This is an example tutorial with some DataFrames.
+This is an example tutorial with some data.
 """
 
 # ╔═╡ a77eb791-9c08-4587-a407-fff318e2163e
@@ -332,6 +343,8 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 """
 
 # ╔═╡ Cell order:
+# ╠═0e4cf5bf-b584-4bcb-a512-c925b1cc37a7
+# ╠═4bc6d576-2c37-4ad0-a866-de8bbc2a32c0
 # ╠═6b053af4-cc52-4895-9fb2-a068dc81030b
 # ╠═2bdf7f1e-7cdd-11ec-09f3-93564593f4c1
 # ╠═a77eb791-9c08-4587-a407-fff318e2163e
