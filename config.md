@@ -11,15 +11,12 @@ mintoclevel = 2
 # Base files such as LICENSE.md and README.md are ignored by default.
 ignore = ["node_modules/"]
 
+prepath = "JuliaTutorialsTemplate"
+
 # RSS (the website_{title, descr, url} must be defined to get RSS)
-generate_rss = true
-website_title = "Franklin Template"
-website_descr = "Example website using Franklin"
-website_url   = "https://tlienart.github.io/FranklinTemplates.jl/"
+generate_rss = false
+website_title = "JuliaTutorialsTemplate"
+website_descr = "Example website containing Julia tutorials"
+website_url   = "https://rikhuijzer.github.io/JuliaTutorialsTemplate/"
 +++
 
-<!--
-Add here global latex commands to use throughout your pages.
--->
-\newcommand{\R}{\mathbb R}
-\newcommand{\scal}[1]{\langle #1 \rangle}

@@ -40,5 +40,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # To reduce state (ease debugging) and the size of the gh-pages branch.
+        force_orphan: true
         publish_dir: ./__site
 
