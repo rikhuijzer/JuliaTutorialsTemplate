@@ -29,7 +29,7 @@ end
 "Build all the notebooks in parallel."
 function build_notebooks()
     dir = TUTORIALS_DIR
-    bopts = BuildOptions(dir; store_binds=true, output_format=franklin_output)
+    bopts = BuildOptions(dir; output_format=franklin_output)
     hopts = HTMLOptions(; append_build_context=true)
     parallel_build(bopts, hopts)
     return nothing
