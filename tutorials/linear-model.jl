@@ -13,7 +13,7 @@ end
 
 # ╔═╡ 56e9db72-7ec8-11ec-2b5e-458367c3b8b7
 # hideall
-title = "Fitting and plotting a linear model";
+title = "GLM.jl and Makie.jl";
 
 # ╔═╡ 061c6a60-7a8f-48ac-8c3c-8306d4d0c3ee
 """
