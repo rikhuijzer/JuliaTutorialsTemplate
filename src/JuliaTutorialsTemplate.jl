@@ -8,11 +8,7 @@ export build_tutorials
 
 const TUTORIALS_DIR = joinpath(PKGDIR, "tutorials")
 
-"""
-    append_notebook_links()
-
-Add a link to the notebook at the bottom of each tutorial.
-"""
+"Add a link to the notebook at the bottom of each tutorial."
 function append_notebook_links()
     dir = TUTORIALS_DIR
     md_paths = filter(endswith(".md"), readdir(dir; join=true))
@@ -23,8 +19,8 @@ function append_notebook_links()
         url = "/tutorials/$jl_file"
         open(md_path, "a") do io
             text = """\n
-                To run this tutorial locally, open [this file]($url) with
-                [Pluto.jl](https://plutojl.org).
+                _To run this tutorial locally, download [this file]($url) and open it with
+                [Pluto.jl](https://plutojl.org)._
                 """
             write(io, text)
         end

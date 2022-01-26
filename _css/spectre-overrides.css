@@ -94,3 +94,13 @@ h2 {
 ol {
     list-style: decimal;
 }
+
+p {
+    margin: 0 0 1rem;
+}
+
+.manifest-versions {
+    font-style: italic;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
