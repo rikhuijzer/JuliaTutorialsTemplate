@@ -8,6 +8,30 @@ export build_tutorials
 
 const TUTORIALS_DIR = joinpath(PKGDIR, "tutorials")
 
+"""
+    append_notebook_links()
+
+Add a link to the notebook at the bottom of each tutorial.
+"""
+function append_notebook_links()
+    dir = TUTORIALS_DIR
+    md_paths = filter(endswith(".md"), readdir(dir; join=true))
+    for md_path in md_paths
+        md_file = basename(md_path)
+        without_extension, _ = splitext(md_file)
+        jl_file = "$(without_extension).jl"
+        url = "/tutorials/$jl_file"
+        open(md_path, "a") do io
+            text = """\n
+                To run this tutorial locally, open [this file]($url) with
+                [Pluto.jl](https://plutojl.org).
+                """
+            write(io, text)
+        end
+    end
+    return nothing
+end
+
 "Build all the notebooks in parallel."
 function build_notebooks()
     dir = TUTORIALS_DIR
@@ -20,6 +44,7 @@ end
 "Build the tutorials."
 function build_tutorials()
     build_notebooks()
+    append_notebook_links()
 end
 
 end # module

@@ -22,9 +22,9 @@ The tutorials all go through the following steps:
 
 ## What alternatives are there to this template?
 
-- There is a template by Fons van der Plas at <https://github.com/JuliaPluto/static-export-template>.
-    That template is easier to use, sticks closer to the original Pluto appearance and has a link to a Binder for each notebook.
-    This template provides more flexibility in appearance and is more suitable for people who like to style their output or who even want to hide all code.
+There is a template by Fons van der Plas at <https://github.com/JuliaPluto/static-export-template>.
+That template is easier to use, sticks closer to the original Pluto appearance and has a link to a Binder for each notebook.
+This template provides more flexibility in appearance and is more suitable for people who like to style their output or who even want to hide all code.
 
 ## How can I make my own tutorials?
 
