@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       disableCache:
-        description: 'Whether to disable cache for this run; defaults to false'
+        description: 'Type `true` to disable cache for this run; defaults to `false`'
         required: false
         default: false
 
