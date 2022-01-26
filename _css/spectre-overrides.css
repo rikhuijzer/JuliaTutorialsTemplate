@@ -123,6 +123,7 @@ p {
 }
 
 .menu-header {
+    font-size: 0.7rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
