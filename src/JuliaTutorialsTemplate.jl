@@ -73,8 +73,9 @@ end
 "Build the tutorials."
 function build_tutorials()
     build_notebooks()
-    append_notebook_links()
+    # Copy the Markdown first or the appended notebook links will add up.
     copy_markdown_files()
+    append_notebook_links()
 end
 
 end # module
