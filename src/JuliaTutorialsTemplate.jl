@@ -8,32 +8,33 @@ export build_tutorials
 
 const TUTORIALS_DIR = joinpath(PKGDIR, "tutorials")
 
-"Copy the source Markdown files, so that they can be inspected for debugging and used with caching."
-function copy_markdown_files()
-    from_dir = TUTORIALS_DIR
-    md_files = filter(endswith(".md"), readdir(from_dir))
-    to_dir = joinpath(PKGDIR, "__site", "tutorials")
-    mkpath(to_dir)
-    for md_file in md_files
-        from = joinpath(from_dir, md_file)
-        to = joinpath(to_dir, md_file)
-        cp(from, to; force=true)
-    end
-    return nothing
-end
-
 "Get files from a previous run. Assumes that the files are inside a `gh-pages` branch."
-function previous_dir()
+function prev_dir()::Union{Nothing,AbstractString}
     if "DISABLE_CACHE" in keys(ENV) && ENV["DISABLE_CACHE"] == "true"
+        return nothing
+    end
+    if !("REPO" in keys(ENV))
         return nothing
     end
     repo = ENV["REPO"]
     url = "https://github.com/$repo"
     dir = mktempdir()
+    @info "Cloning $(url)#gh-pages for caching purposes"
     run(`git clone --depth=1 --branch=gh-pages $url $dir`)
     prev_dir = joinpath(dir, "tutorials")
     unpack_html(prev_dir)
     return prev_dir
+end
+
+"Build all the notebooks in parallel."
+function build_notebooks()
+    dir = TUTORIALS_DIR
+    output_format = franklin_output
+    previous_dir = prev_dir()
+    bopts = BuildOptions(dir; output_format, previous_dir)
+    hopts = HTMLOptions(; append_build_context=true)
+    parallel_build(bopts, hopts)
+    return nothing
 end
 
 "Add a link to the notebook at the bottom of each tutorial."
@@ -56,12 +57,17 @@ function append_notebook_links()
     return nothing
 end
 
-"Build all the notebooks in parallel."
-function build_notebooks()
-    dir = TUTORIALS_DIR
-    bopts = BuildOptions(dir; output_format=franklin_output)
-    hopts = HTMLOptions(; append_build_context=true)
-    parallel_build(bopts, hopts)
+"Copy the source Markdown files, so that they can be inspected for debugging and used with caching."
+function copy_markdown_files()
+    from_dir = TUTORIALS_DIR
+    md_files = filter(endswith(".md"), readdir(from_dir))
+    to_dir = joinpath(PKGDIR, "__site", "tutorials")
+    mkpath(to_dir)
+    for md_file in md_files
+        from = joinpath(from_dir, md_file)
+        to = joinpath(to_dir, md_file)
+        cp(from, to; force=true)
+    end
     return nothing
 end
 
