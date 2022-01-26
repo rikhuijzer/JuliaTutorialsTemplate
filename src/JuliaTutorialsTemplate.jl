@@ -13,30 +13,13 @@ function copy_markdown_files()
     from_dir = TUTORIALS_DIR
     md_files = filter(endswith(".md"), readdir(from_dir))
     to_dir = joinpath(PKGDIR, "__site", "tutorials")
+    mkpath(to_dir)
     for md_file in md_files
         from = joinpath(from_dir, md_file)
         to = joinpath(to_dir, md_file)
         cp(from, to; force=true)
     end
     return nothing
-end
-
-"""
-Franklin puts all HTML files inside a directory with the name "index.html".
-This method unpacks that again.
-"""
-function unpack_html(dir)
-    cd(dir) do
-        dirs = filter(isdir, readdir(pwd()))
-        for potential_packed_dir in dirs
-            from = joinpath(potential_packed_dir, "index.html")
-            to = potential_packed_dir * ".html"
-            mkpath(to)
-            if isfile(from)
-                cp(from, to; force=true)
-            end
-        end
-    end
 end
 
 "Get files from a previous run. Assumes that the files are inside a `gh-pages` branch."
