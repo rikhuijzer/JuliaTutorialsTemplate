@@ -19,8 +19,6 @@ jobs:
     - uses: julia-actions/setup-julia@v1
     - uses: julia-actions/cache@v1
 
-    - run: echo ${{ github.repository }}
-
     # For development purposes.
     - if: ${{ github.repository == 'rikhuijzer/JuliaTutorialsTemplate' }}
       run: julia --project -e 'using Pkg;
