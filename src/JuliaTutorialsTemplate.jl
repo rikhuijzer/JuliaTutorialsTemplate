@@ -31,6 +31,7 @@ function unpack_html(dir)
         for potential_packed_dir in dirs
             from = joinpath(potential_packed_dir, "index.html")
             to = potential_packed_dir * ".html"
+            mkpath(to)
             if isfile(from)
                 cp(from, to; force=true)
             end
