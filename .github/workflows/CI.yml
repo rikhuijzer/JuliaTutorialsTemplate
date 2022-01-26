@@ -19,8 +19,11 @@ jobs:
     - uses: julia-actions/setup-julia@v1
     - uses: julia-actions/cache@v1
 
-    # This step is for developing only.
-    - run: julia --project -e 'using Pkg;
+    - run: echo ${{ env.GITHUB_REPOSITORY }}
+
+    # For development purposes.
+    - if: ${{ env.GITHUB_REPOSITORY == 'rikhuijzer/JuliaTutorialsTemplate' }}
+      run: julia --project -e 'using Pkg;
         Pkg.add(url="https://github.com/rikhuijzer/PlutoStaticHTML.jl#main")'
 
     - uses: julia-actions/julia-buildpkg@latest

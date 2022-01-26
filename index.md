@@ -25,5 +25,5 @@ The tutorials all go through the following steps:
 1. Copy the [template](https://github.com/rikhuijzer/JuliaTutorialsTemplate).
 1. Replace the Pluto notebooks (`.jl` files) inside `tutorials/` by your own tutorials.
 1. Update the menu items to point to the right tutorials.
-1. Replace `JuliaTutorialsTemplate` and my name by your own.
+1. Replace my name, `JuliaTutorialsTemplate` and the repository name by your preferences.
 1. Profit.
