@@ -22,7 +22,6 @@ function prev_dir()::Union{Nothing,AbstractString}
     @info "Cloning $(url)#gh-pages for caching purposes"
     run(`git clone --depth=1 --branch=gh-pages $url $dir`)
     prev_dir = joinpath(dir, "tutorials")
-    unpack_html(prev_dir)
     return prev_dir
 end
 
