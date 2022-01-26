@@ -6,6 +6,11 @@ on:
       - main
   pull_request:
   workflow_dispatch:
+    inputs:
+      disableCache:
+        description: 'Whether to disable cache for this run; defaults to false'
+        required: false
+        default: false
 
 jobs:
   BuildAndDeploy:
@@ -31,6 +36,8 @@ jobs:
         using JuliaTutorialsTemplate; build_tutorials()'
       env:
         JULIA_NUM_THREADS: '2'
+        DISABLE_CACHE: '${{ github.event.inputs.disableCache }}'
+        REPO: '${{ github.repository }}'
 
     - name: Build site
       run: julia --project -e '
