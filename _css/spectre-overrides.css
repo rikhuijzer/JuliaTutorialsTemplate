@@ -26,7 +26,7 @@ ul {
 }
 
 .docs-sidebar .docs-nav {
-    width: 14rem !important;
+    width: 16rem !important;
 }
 
 @font-face {
@@ -48,6 +48,11 @@ pre code {
     border: 1px solid #dbdbdb;
     white-space: pre;
     word-wrap: normal;
+}
+
+.code-output {
+    background: var(--output-background) !important;
+    border: 1px dashed #dbdbdb;
 }
 
 th, td, tr {
@@ -72,6 +77,10 @@ table {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+    white-space: pre;
+    white-space: pre;
+    word-wrap: normal;
+    word-wrap: normal;
 
 .context {
     color: var(--black);
@@ -96,7 +105,14 @@ ol {
 }
 
 p {
-    margin: 0 0 1rem;
+    margin-right: 0.4rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.menu .menu-item > a {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
 }
 
 .manifest-versions {
@@ -104,3 +120,11 @@ p {
     margin-top: 3rem;
     margin-bottom: 1rem;
 }
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
