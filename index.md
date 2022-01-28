@@ -11,7 +11,7 @@ To use this website as a template, go to
 and click on the big "Use this template" button.
 
 Some general information is provided below.
-For more in-depth instructions about how to use this template, see [Getting started](/tutorials/getting-started).
+For more in-depth instructions about how to use this template, see [Getting started](/getting-started).
 
 ## What does this template do?
 
