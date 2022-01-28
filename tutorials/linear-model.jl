@@ -6,14 +6,14 @@ using InteractiveUtils
 
 # ╔═╡ f39435d8-b359-475b-af22-aa3cd7aae131
 begin
-    using DataFrames
     using CairoMakie
+    using DataFrames
     using GLM
 end
 
 # ╔═╡ 56e9db72-7ec8-11ec-2b5e-458367c3b8b7
 # hideall
-title = "GLM.jl and Makie.jl";
+title = "Linear model fitting";
 
 # ╔═╡ 061c6a60-7a8f-48ac-8c3c-8306d4d0c3ee
 """

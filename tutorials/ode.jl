@@ -90,7 +90,7 @@ md"And pass it to the solvers:"
 prob = SecondOrderODEProblem(harmonicoscillator, dx₀, x₀, tspan, ω);
 
 # ╔═╡ 9e1c0ca8-47e6-44ab-baea-9670e2b11802
-sol = solve(prob, DPRKN6());
+sol = solve(prob, DPRKN6())
 
 # ╔═╡ 5bd927dd-562b-4063-a807-2a7abad56b0c
 let
