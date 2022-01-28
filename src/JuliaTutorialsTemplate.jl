@@ -20,9 +20,14 @@ function prev_dir()::Union{Nothing,AbstractString}
     url = "https://github.com/$repo"
     dir = mktempdir()
     @info "Cloning $(url)#gh-pages for caching purposes"
-    run(`git clone --depth=1 --branch=gh-pages $url $dir`)
-    prev_dir = joinpath(dir, "tutorials")
-    return prev_dir
+    try
+        # This can fail if there is no gh-pages branch yet.
+        run(`git clone --depth=1 --branch=gh-pages $url $dir`)
+        prev_dir = joinpath(dir, "tutorials")
+        return prev_dir
+    catch
+        return nothing
+    end
 end
 
 "Build all the notebooks in parallel."
