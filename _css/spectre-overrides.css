@@ -33,11 +33,6 @@ ul {
     width: 16rem !important;
 }
 
-@font-face {
-    font-family: JuliaMono-Regular;
-    src: url("https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.042/JuliaMono-Regular.woff2");
-}
-
 pre {
     font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono;
     font-variant-ligatures: none;
