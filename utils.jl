@@ -60,6 +60,7 @@ function hfun_artifact(params::Vector{String})::String
     name = params[1]
     dir = @artifact_str(name)
     from = joinpath(dir, params[2:end]...)
+    @assert isfile(from)
     location = params[2:end]
     to = joinpath(@__DIR__, "__site", "assets", name, location...)
     mkpath(dirname(to))
