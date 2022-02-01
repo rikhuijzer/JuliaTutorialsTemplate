@@ -34,7 +34,7 @@ ul {
 }
 
 pre {
-    font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono;
+    font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono, monospace;
     font-variant-ligatures: none;
 }
 
