@@ -34,12 +34,11 @@ ul {
 }
 
 pre {
-    font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono, monospace;
     font-variant-ligatures: none;
 }
 
 code {
-    font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono;
+    font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono, monospace;
     font-variant-ligatures: none;
     font-size: 0.8rem;
 }
