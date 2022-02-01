@@ -66,10 +66,6 @@ function hfun_artifact(params::Vector{String})::String
     mkpath(dirname(to))
     cp(from, to; force=true)
     parts = ["assets"; name; location]
-    if "CI" in keys(ENV)
-        prepath = globvar(:prepath)
-        pushfirst!(parts, prepath)
-    end
     url = string('/', join(parts, '/'))
     return url
 end
