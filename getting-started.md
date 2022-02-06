@@ -69,7 +69,11 @@ title = "$title"
 
 Add these blocks in your website to let Franklin know what the page title should be.
 Also remove the old tutorials while you are in that folder.
-Next, go to the menu in `_layout/menu.html` and find the lines containing "menu-header" and "menu-item".
+
+Next, search for `JuliaTutorialsTemplate` inside your repository and replace all occurrences of that word by the name of your repository.
+It is especially important to set the right `prepath` in `config.md` since otherwise the CSS will not work on the website.
+
+Also, go to the menu in `_layout/menu.html` and find the lines containing "menu-header" and "menu-item".
 Compare these lines with how the website looks and, next, change the lines to point to your own tutorials.
 You can also decide to remove all "menu-header" entries; it depends on personal preference.
 
@@ -88,11 +92,11 @@ julia> ]
 
 pkg> activate .
 
-(JuliaTutorialsTemplate) pkg> instantiate
+(Tutorials) pkg> instantiate
 
-(JuliaTutorialsTemplate) pkg> # Press backspace to go back
+(Tutorials) pkg> # Press backspace to go back
 
-julia> using JuliaTutorialsTemplate
+julia> using Tutorials
 
 julia> build_tutorials()
 [...]
