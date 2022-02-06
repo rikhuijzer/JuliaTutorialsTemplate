@@ -14,3 +14,4 @@ _assets/og-image/
 tutorials/*.md
 tutorials/**/*.html
 **/_tmp_*.jl
+**/*backup*.jl
