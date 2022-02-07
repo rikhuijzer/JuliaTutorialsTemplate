@@ -131,6 +131,11 @@ p {
     margin-bottom: 0.5rem;
 }
 
+.menu-item.active a {
+    font-style: italic;
+    text-decoration: underline dotted;
+}
+
 .manifest-versions {
     font-style: italic;
     margin-top: 3rem;
