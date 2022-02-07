@@ -44,6 +44,7 @@ code {
 }
 
 pre code {
+    display: block;
     background: var(--block-background) !important;
     overflow: auto !important;
     border: 1px solid #dbdbdb;
