@@ -15,17 +15,11 @@
 <div class="accordion-container">
   <ul class="menu menu-nav">
     <div class="menu-header">Using this template</div>
-    <li class="menu-item {{ispage getting-started}}active{{end}}">
-        <a href="/getting-started">Getting started</a>
-    </li>
+    {{menuitem "getting-started" "Getting started"}}
     <br/>
     <div class="menu-header">Example Pluto tutorials</div>
-    <li class="menu-item {{ispage tutorials/linear-model}}active{{end}}">
-        <a href="/tutorials/linear-model/">Linear model fitting</a>
-    </li>
-    <li class="menu-item {{ispage tutorials/ode}}active{{end}}">
-        <a href="/tutorials/ode/">Harmonic oscillator</a>
-    </li>
+    {{menuitem "tutorials/linear-model" "Linear model"}}
+    {{menuitem "tutorials/ode" "Harmonic oscillator"}}
   </ul>
 </div>
 </div>

@@ -69,3 +69,18 @@ function hfun_artifact(params::Vector{String})::String
     url = string('/', join(parts, '/'))
     return url
 end
+
+function hfun_menuitem(params::Vector{String})::String
+    @assert length(params) == 2
+    location, title = params
+
+    rpath, _ = Franklin.LOCAL_VARS["fd_rpath"] # "tutorials/linear-model.md"
+    current_location, _ = splitext(rpath)
+    active = current_location == location ? "active" : ""
+
+    pre = "<li class='menu-item $active'>"
+    link = "<a href='/$location/'>$title</a>"
+    post = "</li>"
+    return string(pre, link, post)
+end
+
