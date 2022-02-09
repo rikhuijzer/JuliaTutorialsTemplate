@@ -64,13 +64,13 @@ md"and initial conditions:"
 x₀ = [0.0];
 
 # ╔═╡ ca022fd6-4468-4e09-9ca6-9389cba741af
-dx₀ = [π/2];
+dx₀ = [π / 2];
 
 # ╔═╡ 7b1f0c89-b7f2-4d77-a4a8-d22667612245
 tspan = (0.0, 2π);
 
 # ╔═╡ 11a661d7-489b-4ee4-9cd2-1987c4f354a0
-ϕ = atan((dx₀[1]/ω)/x₀[1]);
+ϕ = atan((dx₀[1] / ω) / x₀[1]);
 
 # ╔═╡ cd57bfef-9925-4eb6-a4b4-c37cc6ee4877
 A = √(x₀[1]^2 + dx₀[1]^2);
@@ -79,7 +79,7 @@ A = √(x₀[1]^2 + dx₀[1]^2);
 md"We define the problem as follows:"
 
 # ╔═╡ ec7199eb-8b64-4078-9971-be491fcc6d5d
-function harmonicoscillator(ddu,du,u,ω,t)
+function harmonicoscillator(ddu, du, u, ω, t)
     ddu .= -ω^2 * u
 end;
 
@@ -94,9 +94,17 @@ sol = solve(prob, DPRKN6())
 
 # ╔═╡ 5bd927dd-562b-4063-a807-2a7abad56b0c
 let
-    plot(sol, vars=[2,1], linewidth=2, title ="Simple Harmonic Oscillator", xaxis = "Time", yaxis = "Elongation", label = ["x" "dx"])
-    plot!(t->A*cos(ω*t-ϕ), lw=3, ls=:dash, label="Analytical Solution x")
-    plot!(t->-A*ω*sin(ω*t-ϕ), lw=3, ls=:dash, label="Analytical Solution dx")
+    plot(
+        sol,
+        vars=[2, 1],
+        linewidth=2,
+        title="Simple Harmonic Oscillator",
+        xaxis="Time",
+        yaxis="Elongation",
+        label=["x" "dx"],
+    )
+    plot!(t -> A * cos(ω * t - ϕ), lw=3, ls=:dash, label="Analytical Solution x")
+    plot!(t -> -A * ω * sin(ω * t - ϕ), lw=3, ls=:dash, label="Analytical Solution dx")
 end
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
