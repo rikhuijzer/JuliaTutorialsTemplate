@@ -11,3 +11,10 @@ git-tree-sha1 = "74d0a953af18dcd657e32a9cd95e77d791882528"
     [[Highlight.download]]
     sha256 = "ba979bd14d82065aebea450ed77e4b3fe217ca3a7876cc69606147b85d8fb3ce"
     url = "https://github.com/highlightjs/cdn-release/archive/refs/tags/11.4.0.tar.gz"
+
+[MathJax]
+git-tree-sha1 = "faab4cf01e9c8c83c66a3896fe72475bfc524923"
+
+    [[MathJax.download]]
+    sha256 = "6847f1cfdd980afbe31b466474da301a56ab859a67d8035442b052dd4ac2fa03"
+    url = "https://github.com/mathjax/MathJax/archive/refs/tags/3.2.0.tar.gz"
