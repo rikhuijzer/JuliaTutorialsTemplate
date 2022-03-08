@@ -31,13 +31,13 @@ function prev_dir()::Union{Nothing,AbstractString}
 end
 
 "Build all the notebooks in parallel."
-function build_notebooks()
+function build()
     dir = TUTORIALS_DIR
     output_format = franklin_output
     previous_dir = prev_dir()
     bopts = BuildOptions(dir; output_format, previous_dir)
     hopts = HTMLOptions(; append_build_context=true)
-    parallel_build(bopts, hopts)
+    build_notebooks(bopts, hopts)
     return nothing
 end
 
@@ -77,7 +77,7 @@ end
 
 "Build the tutorials."
 function build_tutorials()
-    build_notebooks()
+    build()
     # Copy the Markdown first or the appended notebook links will add up.
     copy_markdown_files()
     append_notebook_links()
