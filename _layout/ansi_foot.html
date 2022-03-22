@@ -1,0 +1,22 @@
+<script type="text/javascript">
+    async function color_ansi() {
+        const terminalOutputs = document.querySelectorAll("[id=plutouiterminal]");
+        // Avoid loading AnsiUp if there is no terminal output on the page.
+        if (terminalOutputs.length == 0) {
+            return
+        };
+        try {
+            const { default: AnsiUp } = await import("/libs/ansi_up.js");
+            const ansiUp = new AnsiUp();
+            // Indexed loop is needed here, the array iterator doesn't work for some reason.
+            for (let i = 0; i < terminalOutputs.length; ++i) {
+                const terminalOutput = terminalOutputs[i];
+                const txt = terminalOutput.innerHTML;
+                terminalOutput.innerHTML = ansiUp.ansi_to_html(txt);
+            };
+        } catch(e) {
+            console.error("Failed to import/call ansiup!", e);
+        };
+    };
+    color_ansi();
+</script>
