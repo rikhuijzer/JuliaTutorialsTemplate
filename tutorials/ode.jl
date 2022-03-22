@@ -22,7 +22,7 @@ title = "$title"
 md"""
 # $title
 
-This page shows a part of a tutorial by [SciML](https://github.com/SciML/) (<https://tutorials.sciml.ai/html/models/01-classical_physics.html>).
+This page shows a part of a tutorial by [SciML](https://github.com/SciML/) (<https://tutorials.sciml.ai/html/models/01-classical_physics>).
 
 In the tutorial, a simple harmonic oscillator is shown.
 It is given by

@@ -82,5 +82,6 @@ function build_tutorials()
     copy_markdown_files()
     append_notebook_links()
 end
+precompile(build_tutorials, ())
 
 end # module
