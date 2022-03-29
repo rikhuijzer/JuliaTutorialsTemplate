@@ -6,7 +6,7 @@
             return
         };
         try {
-            const { default: AnsiUp } = await import("/libs/ansi_up.js");
+            const { default: AnsiUp } = await import("/JuliaTutorialsTemplate/libs/ansi_up.js");
             const ansiUp = new AnsiUp();
             // Indexed loop is needed here, the array iterator doesn't work for some reason.
             for (let i = 0; i < terminalOutputs.length; ++i) {
