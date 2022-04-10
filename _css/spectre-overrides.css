@@ -53,8 +53,11 @@ pre code {
 }
 
 .code-output {
+    font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono, monospace;
+    font-size: 0.8rem;
     background: var(--output-background) !important;
     border: 1px dashed #dbdbdb;
+    padding: 1em;
 }
 
 th, td, tr {
