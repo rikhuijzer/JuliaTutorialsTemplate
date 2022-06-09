@@ -13,8 +13,8 @@ git-tree-sha1 = "d5fae1aed2d6ce57083e5e9d61a6380c86e27d63"
     url = "https://github.com/highlightjs/cdn-release/archive/refs/tags/11.5.0.tar.gz"
 
 [MathJax]
-git-tree-sha1 = "faab4cf01e9c8c83c66a3896fe72475bfc524923"
+git-tree-sha1 = "da02522100e5961a71834a06aa2c43f6618a364f"
 
     [[MathJax.download]]
-    sha256 = "6847f1cfdd980afbe31b466474da301a56ab859a67d8035442b052dd4ac2fa03"
-    url = "https://github.com/mathjax/MathJax/archive/refs/tags/3.2.0.tar.gz"
+    sha256 = "4206b9645a97f431018d0b6c4021c98607d49ba4dc129f4f2ecce675e2fcba11"
+    url = "https://github.com/mathjax/MathJax/archive/refs/tags/3.2.2.tar.gz"
