@@ -1,0 +1,13 @@
+name = "Tutorials"
+uuid = "e088c1bc-e00f-47bb-8742-48f468c16799"
+authors = ["Rik Huijzer <t.h.huijzer@rug.nl>"]
+version = "1.0.0"
+
+[deps]
+Artifacts = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
+Franklin = "713c75ef-9fc9-4b05-94a9-213340da978e"
+PlutoStaticHTML = "359b1769-a58e-495b-9770-312e911026ad"
+
+[compat]
+Franklin = "0.10"
+PlutoStaticHTML = "5"

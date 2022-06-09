@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/JuliaTutorialsTemplate/assets/favicon.png">
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ["\\(", "\\)"]],
+      processEscapes: true,
+    }
+  };
+</script>
+
+<!-- This weird alignment is required by Franklin's parser. -->
+<script
+    async
+    src="/JuliaTutorialsTemplate/assets/MathJax/MathJax-3.2.2/es5/tex-mml-chtml.js">
+</script>
+
+<style>
+@font-face {
+  src: url("/JuliaTutorialsTemplate//assets/MathJax/MathJax-3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff">
+}
+</style>
+
+<style>
+@font-face {
+  src: url("/JuliaTutorialsTemplate//assets/MathJax/MathJax-3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff">
+}
+</style>
+
+<style>
+@font-face {
+  src: url("/JuliaTutorialsTemplate//assets/MathJax/MathJax-3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff">
+}
+</style>
+
+  <link rel="stylesheet"
+  href="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/styles/github.min.css">
+
+<script
+  src="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/highlight.min.js">
+</script>
+
+<script
+  src="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/languages/julia.min.js">
+</script>
+
+<script
+  src="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/languages/julia-repl.min.js">
+</script>
+
+<script>
+  hljs.configure({tabReplace: '    '});
+  hljs.highlightAll();
+</script>
+
+    <style>
+    @font-face {
+      font-family: JuliaMono-Regular;
+      src: url("/JuliaTutorialsTemplate//assets/JuliaMono/juliamono-0.044/webfonts/JuliaMono-Regular.woff2");
+    }
+    </style>
+
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre.min.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre-exp.min.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre-icons.min.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre-overrides.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/docs.min.css">
+
+  <title>Getting started - JuliaTutorialsTemplate</title>
+  <meta name="description" content="A template for building websites with Julia language content. Easily create Pluto notebooks and publish them online.">
+</head>
+<body>
+  <div class="docs-container off-canvas off-canvas-sidebar-show">
+  <div class="docs-navbar">
+    <a class="off-canvas-toggle btn btn-link btn-action" href="#sidebar"><i class="icon icon-menu"></i></a>
+    <div class="btns d-flex">
+      <a class="btn btn-primary ml-1" href="https://github.com/rikhuijzer/JuliaTutorialsTemplate">GitHub</a>
+    </div>
+</div>
+
+<div id="sidebar" class="docs-sidebar off-canvas-sidebar">
+
+<div class="docs-brand">
+    <h5><a href="/JuliaTutorialsTemplate/">Julia Tutorials Template</a></h5>
+</div>
+
+<div class="docs-nav">
+<div class="accordion-container">
+  <ul class="menu menu-nav">
+    <div class="menu-header">Using this template</div>
+    <li class='menu-item active'><a href='/JuliaTutorialsTemplate/getting-started/'>Getting started</a></li>
+    <br/>
+    <div class="menu-header">Example Pluto tutorials</div>
+    <li class='menu-item '><a href='/JuliaTutorialsTemplate/tutorials/linear-model/'>Linear model</a></li>
+    <li class='menu-item '><a href='/JuliaTutorialsTemplate/tutorials/ode/'>Harmonic oscillator</a></li>
+    <li class='menu-item '><a href='/JuliaTutorialsTemplate/tutorials/benchmarking/'>Benchmarking</a></li>
+  </ul>
+</div>
+</div>
+</div>
+<a class="off-canvas-overlay" href="#close"></a>
+
+
+<div class="off-canvas-content">
+<div id="content" class="docs-content">
+<div class="container">
+<!-- Content appended here -->
+<div class="franklin-content">
+<h1 id="getting_started"><a href="#getting_started" class="header-anchor">Getting started</a></h1>
+<p>This page contains some detailed instructions on creating your own website with Julia tutorials. If you are more familiar with Julia development and GitHub Actions and Pages, then see the <a href="/JuliaTutorialsTemplate/">Homepage</a> for more generic instructions.</p>
+<div class="franklin-toc"><ol><li><a href="#create_a_new_repository_based_on_this_template">Create a new repository based on this template</a></li><li><a href="#check_that_github_actions_are_running">Check that GitHub Actions are running</a></li><li><a href="#enable_the_website">Enable the website</a></li><li><a href="#make_the_website_your_own">Make the website your own</a><ol><li><a href="#without_running_the_site_locally">Without running the site locally</a></li><li><a href="#with_running_the_site_locally">With running the site locally</a></li></ol></li></ol></div>
+<h2 id="create_a_new_repository_based_on_this_template"><a href="#create_a_new_repository_based_on_this_template" class="header-anchor">Create a new repository based on this template</a></h2>
+<p>Before diving into details, a bit of background about the build system: GitHub provides computers for free to run your code or, specifically, tutorials <strong>and</strong> they host websites for free. This running for free is called continuous integration &#40;CI&#41; and is very useful in practice. In essence, the idea is that a computer starts running your code each time that you change your code/tutorials in a repository. Because GitHub shows very clearly which runs belong to which code change, it is very easy to see what caused runs to fail if a mistake was made when updating a tutorial. Also, CI contains the whole build pipeline from <a href="https://github.com/fonsp/Pluto.jl">Pluto.jl</a> notebooks to deploying the website. This makes it easy to make a minor change, say, to fix a typo. Instead of manually having to run the tutorial after fixing the typo and upload the changed files to a website, the idea is to just fix the typo and let CI do the rest. The CI will automatically re-run any notebooks that it needs to run and update the website.</p>
+<p>So, to have your own tutorials and CI and website, a new repository has to be created based on this template. To do so, go to <a href="https://github.com/rikhuijzer/JuliaTutorialsTemplate">https://github.com/rikhuijzer/JuliaTutorialsTemplate</a> and click on the big &quot;Use this template&quot; button. In the new page that opens, give your project a nice name click on &quot;Create repository from template&quot;. Do not select &quot;Include all branches&quot;. Next, GitHub will say &quot;Generating your repository&quot; for a few seconds and then you have your new repository 🎉.</p>
+<h2 id="check_that_github_actions_are_running"><a href="#check_that_github_actions_are_running" class="header-anchor">Check that GitHub Actions are running</a></h2>
+<p>That CI thing mentioned above is called GitHub Actions. When clicking on the Actions tab near the top of the page, there should be one workflow run visible. It should either be orange, which means running, or green, which means successfully finished. If this is the case, then you&#39;re ready to go to the next step 🎈. Otherwise, enable the GitHub Actions in the repository settings or open an issue at <a href="https://github.com/rikhuijzer/JuliaTutorialsTemplate/issues/new">https://github.com/rikhuijzer/JuliaTutorialsTemplate/issues/new</a>.</p>
+<h2 id="enable_the_website"><a href="#enable_the_website" class="header-anchor">Enable the website</a></h2>
+<p>To setup the website go to your Pages settings inside your repository&#39;s settings. This should show &quot;Your site is ready to be published at &#91;...&#93;&quot;. To publish the site, set the Source to <code>gh-pages</code> and click Save. After a few minutes, your site should be visible at the link shown after &quot;Your site is ready to be published at&quot;. So, that&#39;s probably something like &quot;https://YourName.github.io/YourProject&quot; 🌐. If you want, you can add this link to the About section on the homepage of your GitHub repository so that you and visitors can quickly find the site from there.</p>
+<h2 id="make_the_website_your_own"><a href="#make_the_website_your_own" class="header-anchor">Make the website your own</a></h2>
+<p>Now that all automation is configured, you can change the files in the repository and the site should update once the run completes. There are now two ways to go about changing the website:</p>
+<h3 id="without_running_the_site_locally"><a href="#without_running_the_site_locally" class="header-anchor">Without running the site locally</a></h3>
+<p>Just create some new Pluto notebooks and store them in the <code>tutorials</code> directory. Note that the page title is set in the first blocks looking like:</p>
+<pre><code class="language-julia"># hideall
+title &#61; &quot;My title&quot;;</code></pre>
+<pre><code class="language-julia">&quot;&quot;&quot;
+&#43;&#43;&#43;
+title &#61; &quot;&#36;title&quot;
+&#43;&#43;&#43;
+&quot;&quot;&quot; |&gt; Base.Text</code></pre>
+<p>Add these blocks in your website to let Franklin know what the page title should be. Also remove the old tutorials while you are in that folder.</p>
+<p>Next, search for <code>JuliaTutorialsTemplate</code> inside your repository and replace all occurrences of that word by the name of your repository. It is especially important to set the right <code>prepath</code> in <code>config.md</code> since otherwise the CSS will not work on the website.</p>
+<p>Also, go to the menu in <code>_layout/menu.html</code> and find the lines containing &quot;menu-header&quot; and &quot;menu-item&quot;. Compare these lines with how the website looks and, next, change the lines to point to your own tutorials. You can also decide to remove all &quot;menu-header&quot; entries; it depends on personal preference.</p>
+<p>After doing this, your tutorials should become available on your website 🔎. This approach should work fine in most cases 🧑‍💻. If there are problems, it may be good to run the site locally to see what&#39;s wrong.</p>
+<h3 id="with_running_the_site_locally"><a href="#with_running_the_site_locally" class="header-anchor">With running the site locally</a></h3>
+<p>If you rather double check whether things work locally, there are two things to do:</p>
+<p>First, run the following:</p>
+<pre><code class="language-julia-repl">julia&gt; &#93;
+
+pkg&gt; activate .
+
+&#40;Tutorials&#41; pkg&gt; instantiate
+
+&#40;Tutorials&#41; pkg&gt; # Press backspace to go back
+
+julia&gt; using Tutorials
+
+julia&gt; build_tutorials&#40;&#41;
+&#91;...&#93;</code></pre>
+<p>This should run all the tutorials in the <code>tutorials</code> folder and write multiple Markdown files to the <code>tutorials</code> folder. Now that the files can be read by <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>, it&#39;s time to start the Live Server. To do so, continue from the last code with:</p>
+<pre><code class="language-julia-repl">julia&gt; using Franklin
+
+julia&gt; serve&#40;&#41;
+&#91;...&#93;
+→ Starting the server...
+✓ LiveServer listening on http://localhost:8000/ ...
+  &#40;use CTRL&#43;C to shut down&#41;
+→ page updated &#91;✓&#93;</code></pre>
+<p>Go to that URL &#40;<code>http://localhost:8000/</code>&#41; in your browser to see a preview of the tutorials.</p>
+<script type="text/javascript" src="/JuliaTutorialsTemplate/libs/ansi_up.js" defer></script>
+
+<div id="copyright" class="docs-footer container grid-lg">
+<a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> Rik Huijzer
+</div>
+</div><!-- CONTENT ENDS HERE -->
+    </div>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

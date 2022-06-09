@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/JuliaTutorialsTemplate/assets/favicon.png">
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ["\\(", "\\)"]],
+      processEscapes: true,
+    }
+  };
+</script>
+
+<!-- This weird alignment is required by Franklin's parser. -->
+<script
+    async
+    src="/JuliaTutorialsTemplate/assets/MathJax/MathJax-3.2.2/es5/tex-mml-chtml.js">
+</script>
+
+<style>
+@font-face {
+  src: url("/JuliaTutorialsTemplate//assets/MathJax/MathJax-3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff">
+}
+</style>
+
+<style>
+@font-face {
+  src: url("/JuliaTutorialsTemplate//assets/MathJax/MathJax-3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff">
+}
+</style>
+
+<style>
+@font-face {
+  src: url("/JuliaTutorialsTemplate//assets/MathJax/MathJax-3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff">
+}
+</style>
+
+  <link rel="stylesheet"
+  href="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/styles/github.min.css">
+
+<script
+  src="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/highlight.min.js">
+</script>
+
+<script
+  src="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/languages/julia.min.js">
+</script>
+
+<script
+  src="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/languages/julia-repl.min.js">
+</script>
+
+<script>
+  hljs.configure({tabReplace: '    '});
+  hljs.highlightAll();
+</script>
+
+    <style>
+    @font-face {
+      font-family: JuliaMono-Regular;
+      src: url("/JuliaTutorialsTemplate//assets/JuliaMono/juliamono-0.044/webfonts/JuliaMono-Regular.woff2");
+    }
+    </style>
+
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre.min.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre-exp.min.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre-icons.min.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre-overrides.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/docs.min.css">
+
+  <title>Julia Tutorials Template - JuliaTutorialsTemplate</title>
+  <meta name="description" content="A template for building websites with Julia language content. Easily create Pluto notebooks and publish them online.">
+</head>
+<body>
+  <div class="docs-container off-canvas off-canvas-sidebar-show">
+  <div class="docs-navbar">
+    <a class="off-canvas-toggle btn btn-link btn-action" href="#sidebar"><i class="icon icon-menu"></i></a>
+    <div class="btns d-flex">
+      <a class="btn btn-primary ml-1" href="https://github.com/rikhuijzer/JuliaTutorialsTemplate">GitHub</a>
+    </div>
+</div>
+
+<div id="sidebar" class="docs-sidebar off-canvas-sidebar">
+
+<div class="docs-brand">
+    <h5><a href="/JuliaTutorialsTemplate/">Julia Tutorials Template</a></h5>
+</div>
+
+<div class="docs-nav">
+<div class="accordion-container">
+  <ul class="menu menu-nav">
+    <div class="menu-header">Using this template</div>
+    <li class='menu-item '><a href='/JuliaTutorialsTemplate/getting-started/'>Getting started</a></li>
+    <br/>
+    <div class="menu-header">Example Pluto tutorials</div>
+    <li class='menu-item '><a href='/JuliaTutorialsTemplate/tutorials/linear-model/'>Linear model</a></li>
+    <li class='menu-item '><a href='/JuliaTutorialsTemplate/tutorials/ode/'>Harmonic oscillator</a></li>
+    <li class='menu-item '><a href='/JuliaTutorialsTemplate/tutorials/benchmarking/'>Benchmarking</a></li>
+  </ul>
+</div>
+</div>
+</div>
+<a class="off-canvas-overlay" href="#close"></a>
+
+
+<div class="off-canvas-content">
+<div id="content" class="docs-content">
+<div class="container">
+<!-- Content appended here -->
+<div class="franklin-content">
+<h1 id="julia_tutorials_template"><a href="#julia_tutorials_template" class="header-anchor">Julia Tutorials Template</a></h1>
+<p>This is a template repository which can be used to create Julia tutorials websites. To use this website as a template, go to <a href="https://github.com/rikhuijzer/JuliaTutorialsTemplate">https://github.com/rikhuijzer/JuliaTutorialsTemplate</a> and click on the big &quot;Use this template&quot; button.</p>
+<p>Some general information is provided below. For more in-depth instructions about how to use this template, see <a href="/JuliaTutorialsTemplate/getting-started">Getting started</a>.</p>
+<h2 id="what_does_this_template_do"><a href="#what_does_this_template_do" class="header-anchor">What does this template do?</a></h2>
+<p>This template contains multiple Pluto notebooks in the <code>tutorials</code> folder. These tutorials are listed on the left side of this webpage. Here,</p>
+<ol>
+<li><p>each tutorial is created and updated in <a href="https://github.com/fonsp/Pluto.jl">Pluto.jl</a>, which is super easy and convenient ✔️,</p>
+</li>
+<li><p>evaluated and converted to Markdown files in parallel and with caching &#40;for speed 🚀&#41; by <a href="https://github.com/rikhuijzer/PlutoStaticHTML.jl">PlutoStaticHTML.jl</a> <em>and</em></p>
+</li>
+<li><p>the tutorials are embedded in a nice website by <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> 😎.</p>
+</li>
+</ol>
+<p>These steps all run in an automated workflow, so changing a file in your copy of this template will cause the notebooks to be evaluated again &#40;or not, if nothing changed since the last run&#41;.</p>
+<h2 id="how_can_i_make_my_own_tutorials"><a href="#how_can_i_make_my_own_tutorials" class="header-anchor">How can I make my own tutorials?</a></h2>
+<ul>
+<li><p>Copy the <a href="https://github.com/rikhuijzer/JuliaTutorialsTemplate">template</a> by clicking on big &quot;Use this template&quot; button.</p>
+</li>
+<li><p>Replace the Pluto notebooks &#40;<code>.jl</code> files&#41; inside <code>tutorials</code> by your own tutorials.</p>
+</li>
+<li><p>Change the menu at <code>layout/menu.html</code> to point to the right tutorials.</p>
+</li>
+<li><p>Modify any text however you like, the source code has an MIT license.</p>
+</li>
+<li><p>GitHub will take your tutorials and convert them automatically to a pretty website.</p>
+</li>
+</ul>
+<h2 id="what_alternatives_are_there_to_this_template"><a href="#what_alternatives_are_there_to_this_template" class="header-anchor">What alternatives are there to this template?</a></h2>
+<p>There is a template by Fons van der Plas at <a href="https://github.com/JuliaPluto/static-export-template">https://github.com/JuliaPluto/static-export-template</a>. That template is easier to use, sticks closer to the original Pluto appearance and has a link to a Binder for each notebook. In contrast, this template provides more flexibility in appearance and is more suitable for people who like to style their output or who even want to hide all code. Also, this template assumes some knowledge about GitHub Actions and hosting a website via GitHub Pages.</p>
+<script type="text/javascript" src="/JuliaTutorialsTemplate/libs/ansi_up.js" defer></script>
+
+<div id="copyright" class="docs-footer container grid-lg">
+<a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> Rik Huijzer
+</div>
+</div><!-- CONTENT ENDS HERE -->
+    </div>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

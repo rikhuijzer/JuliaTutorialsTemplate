@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+    <loc>https://rikhuijzer.github.io/JuliaTutorialsTemplate/404/index.html</loc>
+    <lastmod>2022-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://rikhuijzer.github.io/JuliaTutorialsTemplate/tutorials/ode/index.html</loc>
+    <lastmod>2022-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://rikhuijzer.github.io/JuliaTutorialsTemplate/tutorials/linear-model/index.html</loc>
+    <lastmod>2022-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://rikhuijzer.github.io/JuliaTutorialsTemplate/getting-started/index.html</loc>
+    <lastmod>2022-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://rikhuijzer.github.io/JuliaTutorialsTemplate/tutorials/benchmarking/index.html</loc>
+    <lastmod>2022-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://rikhuijzer.github.io/JuliaTutorialsTemplate/index.html</loc>
+    <lastmod>2022-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+</urlset>
