@@ -36,7 +36,7 @@ function build()
     output_format = franklin_output
     previous_dir = prev_dir()
     bopts = BuildOptions(dir; output_format, previous_dir)
-    hopts = HTMLOptions(; append_build_context=true)
+    hopts = OutputOptions(; append_build_context=true)
     build_notebooks(bopts, hopts)
     return nothing
 end
