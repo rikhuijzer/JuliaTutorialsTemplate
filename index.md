@@ -27,6 +27,8 @@ These steps all run in an automated workflow, so changing a file in your copy of
 
 ## How can I make my own tutorials?
 
+The following is the short guide, for a more detailled guide, see [Getting started](/getting-started).
+
 - Copy the [template](https://github.com/rikhuijzer/JuliaTutorialsTemplate) by clicking on big "Use this template" button.
 - Replace the Pluto notebooks (`.jl` files) inside `tutorials` by your own tutorials.
 - Change the menu at `layout/menu.html` to point to the right tutorials.

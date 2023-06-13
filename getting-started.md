@@ -38,11 +38,12 @@ Otherwise, enable the GitHub Actions in the repository settings or open an issue
 ## Enable the website
 
 To setup the website go to your Pages settings inside your repository's settings.
-This should show "Your site is ready to be published at [...]".
-To publish the site, set the Source to `gh-pages` and click Save.
-After a few minutes, your site should be visible at the link shown after "Your site is ready to be published at".
+To publish the site, set the Source to `Deploy from a branch` and the branch to `gh-pages` and click Save.
+After a few minutes, your site should be visible at the link shown after "Your site is live at".
 So, that's probably something like "https://YourName.github.io/YourProject" 🌐.
-If you want, you can add this link to the About section on the homepage of your GitHub repository so that you and visitors can quickly find the site from there.
+Next, it's advisable to add this link to the About section on the homepage of your GitHub repository so that you and visitors can quickly find the site from there.
+To do that, go to the main page of your repository and click the install symbol behind "About" on the right of your repository.
+There, you can specify the Description of your repository and the Website.
 
 ## Make the website your own
 
