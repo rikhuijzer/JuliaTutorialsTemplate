@@ -1,0 +1,4 @@
+Sitemap: https://rikhuijzer.github.io/JuliaTutorialsTemplate/sitemap.xml
+
+User-agent: *
+Disallow:

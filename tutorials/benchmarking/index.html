@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/JuliaTutorialsTemplate/assets/favicon.png">
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ["\\(", "\\)"]],
+      processEscapes: true,
+    }
+  };
+</script>
+
+<!-- This weird alignment is required by Franklin's parser. -->
+<script
+    async
+    src="/JuliaTutorialsTemplate/assets/MathJax/MathJax-3.2.2/es5/tex-mml-chtml.js">
+</script>
+
+<style>
+@font-face {
+  src: url("/JuliaTutorialsTemplate//assets/MathJax/MathJax-3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff">
+}
+</style>
+
+<style>
+@font-face {
+  src: url("/JuliaTutorialsTemplate//assets/MathJax/MathJax-3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff">
+}
+</style>
+
+<style>
+@font-face {
+  src: url("/JuliaTutorialsTemplate//assets/MathJax/MathJax-3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff">
+}
+</style>
+
+  <link rel="stylesheet"
+  href="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/styles/github.min.css">
+
+<script
+  src="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/highlight.min.js">
+</script>
+
+<script
+  src="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/languages/julia.min.js">
+</script>
+
+<script
+  src="/JuliaTutorialsTemplate/assets/Highlight/cdn-release-11.5.0/build/languages/julia-repl.min.js">
+</script>
+
+<script>
+  hljs.configure({tabReplace: '    '});
+  hljs.highlightAll();
+</script>
+
+    <style>
+    @font-face {
+      font-family: JuliaMono-Regular;
+      src: url("/JuliaTutorialsTemplate//assets/JuliaMono/juliamono-0.044/webfonts/JuliaMono-Regular.woff2");
+    }
+    </style>
+
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre.min.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre-exp.min.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre-icons.min.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/spectre-overrides.css">
+  <link rel="stylesheet" href="/JuliaTutorialsTemplate/css/docs.min.css">
+
+  <title>Benchmarking - JuliaTutorialsTemplate</title>
+  <meta name="description" content="A template for building websites with Julia language content. Easily create Pluto notebooks and publish them online.">
+</head>
+<body>
+  <div class="docs-container off-canvas off-canvas-sidebar-show">
+  <div class="docs-navbar">
+    <a class="off-canvas-toggle btn btn-link btn-action" href="#sidebar"><i class="icon icon-menu"></i></a>
+    <div class="btns d-flex">
+      <a class="btn btn-primary ml-1" href="https://github.com/rikhuijzer/JuliaTutorialsTemplate">GitHub</a>
+    </div>
+</div>
+
+<div id="sidebar" class="docs-sidebar off-canvas-sidebar">
+
+<div class="docs-brand">
+    <h5><a href="/JuliaTutorialsTemplate/">Julia Tutorials Template</a></h5>
+</div>
+
+<div class="docs-nav">
+<div class="accordion-container">
+  <ul class="menu menu-nav">
+    <div class="menu-header">Using this template</div>
+    <li class='menu-item '><a href='/JuliaTutorialsTemplate/getting-started/'>Getting started</a></li>
+    <br/>
+    <div class="menu-header">Example Pluto tutorials</div>
+    <li class='menu-item '><a href='/JuliaTutorialsTemplate/tutorials/linear-model/'>Linear model</a></li>
+    <li class='menu-item '><a href='/JuliaTutorialsTemplate/tutorials/ode/'>Harmonic oscillator</a></li>
+    <li class='menu-item active'><a href='/JuliaTutorialsTemplate/tutorials/benchmarking/'>Benchmarking</a></li>
+  </ul>
+</div>
+</div>
+</div>
+<a class="off-canvas-overlay" href="#close"></a>
+
+
+<div class="off-canvas-content">
+<div id="content" class="docs-content">
+<div class="container">
+<!-- Content appended here -->
+<div class="franklin-content"><p>
+<!-- PlutoStaticHTML.Begin -->
+<!--
+    # This information is used for caching.
+    [PlutoStaticHTML.State]
+    input_sha = "1c8856f178c5e33699171fe193e9c1ed0e156adbaa748a06cc69c23a3e449fdf"
+    julia_version = "1.9.1"
+-->
+
+
+
+
+ </p>
+
+
+
+<div class="markdown"><h1>Benchmarking</h1><p>This notebook shows some <code>@benchmark</code> and <code>@code_warntype</code> output. Both outputs are shown via the <code>with_terminal</code> from <a href="https://github.com/JuliaPluto/PlutoUI.jl">PlutoUI.jl</a>, see below.</p><p>We define some function <code>double</code> and a dictionary of numbers in order to show type inference problems via <code>@code_warntype</code>:</p></div>
+
+<pre class='language-julia'><code class='language-julia'>numbers = Dict(:one =&gt; 1f0, :two =&gt; 2.0)</code></pre>
+<pre class="code-output documenter-example-output" id="var-numbers">Dict{Symbol, AbstractFloat} with 2 entries:
+  :two =&gt; 2.0
+  :one =&gt; 1.0</pre>
+
+<pre class='language-julia'><code class='language-julia'>function double(mapping, key::Symbol)
+    return 2 * mapping[key]
+end;</code></pre>
+
+
+
+<div class="markdown"><p>Now, the code works.</p></div>
+
+<pre class='language-julia'><code class='language-julia'>double(numbers, :one)</code></pre>
+<pre class="code-output documenter-example-output" id="var-hash458071">2.0f0</pre>
+
+<pre class='language-julia'><code class='language-julia'>double(numbers, :two)</code></pre>
+<pre class="code-output documenter-example-output" id="var-hash234834">4.0</pre>
+
+
+<div class="markdown"><p>But the <code>@code_warntype</code> shows some big red warnings:</p></div>
+
+<pre class='language-julia'><code class='language-julia'>using PlutoUI: with_terminal</code></pre>
+
+
+<pre class='language-julia'><code class='language-julia'>with_terminal() do
+    @code_warntype double(numbers, :one)
+end</code></pre>
+<pre id="plutouiterminal">MethodInstance for Main.var\"workspace#4\".double(::Dict{Symbol, AbstractFloat}, ::Symbol)
+  from double(�[90mmapping�[39m, �[90mkey�[39m::�[1mSymbol�[22m)�[90m @�[39m �[90mMain.var\"workspace#4\"�[39m �[90m~/work/JuliaTutorialsTemplate/JuliaTutorialsTemplate/tutorials/�[39m�[90m�[4mbenchmarking.jl#==#3f0e2049-8597-4dac-b499-4d7a8a35978e:1�[24m�[39m
+Arguments
+  #self#�[36m::Core.Const(Main.var\"workspace#4\".double)�[39m
+  mapping�[36m::Dict{Symbol, AbstractFloat}�[39m
+  key�[36m::Symbol�[39m
+Body�[91m�[1m::Any�[22m�[39m
+�[90m1 ─�[39m %1 = Base.getindex(mapping, key)�[91m�[1m::AbstractFloat�[22m�[39m
+�[90m│  �[39m %2 = (2 * %1)�[91m�[1m::Any�[22m�[39m
+�[90m└──�[39m      return %2
+</pre>
+
+
+<div class="markdown"><p>We can fix this by forcing all elements in the dictionary to have the same type. Specifically, to we force all elements to be of type <code>Float64</code>:</p></div>
+
+<pre class='language-julia'><code class='language-julia'>typednumbers = Dict{Symbol, Float64}(:one =&gt; 1f0, :two =&gt; 2.0)</code></pre>
+<pre class="code-output documenter-example-output" id="var-typednumbers">Dict{Symbol, Float64} with 2 entries:
+  :two =&gt; 2.0
+  :one =&gt; 1.0</pre>
+
+
+<div class="markdown"><p>This gets rid of all the type warnings:</p></div>
+
+<pre class='language-julia'><code class='language-julia'>with_terminal() do
+    @code_warntype double(typednumbers, :one)
+end</code></pre>
+<pre id="plutouiterminal">MethodInstance for Main.var\"workspace#4\".double(::Dict{Symbol, Float64}, ::Symbol)
+  from double(�[90mmapping�[39m, �[90mkey�[39m::�[1mSymbol�[22m)�[90m @�[39m �[90mMain.var\"workspace#4\"�[39m �[90m~/work/JuliaTutorialsTemplate/JuliaTutorialsTemplate/tutorials/�[39m�[90m�[4mbenchmarking.jl#==#3f0e2049-8597-4dac-b499-4d7a8a35978e:1�[24m�[39m
+Arguments
+  #self#�[36m::Core.Const(Main.var\"workspace#4\".double)�[39m
+  mapping�[36m::Dict{Symbol, Float64}�[39m
+  key�[36m::Symbol�[39m
+Body�[36m::Float64�[39m
+�[90m1 ─�[39m %1 = Base.getindex(mapping, key)�[36m::Float64�[39m
+�[90m│  �[39m %2 = (2 * %1)�[36m::Float64�[39m
+�[90m└──�[39m      return %2
+</pre>
+
+
+<div class="markdown"><p>And makes the method more quick:</p></div>
+
+<pre class='language-julia'><code class='language-julia'>using BenchmarkTools</code></pre>
+
+
+<pre class='language-julia'><code class='language-julia'>with_benchmark_terminal() do
+    @benchmark double(numbers, :one)
+end</code></pre>
+<pre id="plutouiterminal">BenchmarkTools.Trial: 10000 samples with 990 evaluations.
+ Range (min … max):  40.303 ns …  3.804 μs  ┊ GC (min … max): 0.00% … 97.73%
+ Time  (median):     50.910 ns              ┊ GC (median):    0.00%
+ Time  (mean ± σ):   58.816 ns ± 58.810 ns  ┊ GC (mean ± σ):  1.21% ±  1.38%
+
+    ▃▇█▅                                                       
+  ▂▃████▇██▇▄▅▄▄▄▄▃▃▃▃▃▂▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▂▂▂▂▂ ▃
+  40.3 ns         Histogram: frequency by time         141 ns &lt;
+
+ Memory estimate: 16 bytes, allocs estimate: 1.
+</pre>
+
+<pre class='language-julia'><code class='language-julia'>with_benchmark_terminal() do
+    @benchmark double(typednumbers, :one)
+end</code></pre>
+<pre id="plutouiterminal">BenchmarkTools.Trial: 10000 samples with 996 evaluations.
+ Range (min … max):  22.289 ns …  21.118 μs  ┊ GC (min … max): 0.00% … 0.00%
+ Time  (median):     27.108 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   70.159 ns ± 670.966 ns  ┊ GC (mean ± σ):  4.03% ± 1.71%
+
+  ▅▇█▅▅▄▃▅▆▅▃▃▃▃▃▃▂▁▁▁▁▁                                       ▂
+  ████████████████████████▇▇▇██▇▇▇▇▇▇▇▆▅▅▅▅▅▃▅▅▃▅▄▃▄▄▂▄▃▃▂▄▄▅▄ █
+  22.3 ns       Histogram: log(frequency) by time       104 ns &lt;
+
+ Memory estimate: 16 bytes, allocs estimate: 1.
+</pre>
+
+
+<div class="markdown"><h2>Appendix</h2></div>
+
+<pre class='language-julia'><code class='language-julia'>function with_benchmark_terminal(f)
+    out = sprint(show, "text/plain", f())
+    with_terminal() do
+        print(out)
+    end
+end;</code></pre>
+
+<div class='manifest-versions'>
+<p>Built with Julia 1.9.1 and</p>
+BenchmarkTools 1.3.2<br>
+PlutoUI 0.7.51
+</div>
+
+<!-- PlutoStaticHTML.End -->
+
+<p><em>To run this tutorial locally, download <a href="/JuliaTutorialsTemplate/tutorials/benchmarking.jl">this file</a> and open it with <a href="https://plutojl.org">Pluto.jl</a>.</em></p>
+<script type="text/javascript" src="/JuliaTutorialsTemplate/libs/ansi_up.js" defer></script>
+
+<div id="copyright" class="docs-footer container grid-lg">
+<a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> Rik Huijzer
+</div>
+</div><!-- CONTENT ENDS HERE -->
+    </div>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

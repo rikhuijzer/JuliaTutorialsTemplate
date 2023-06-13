@@ -1,0 +1,185 @@
+:root {
+  --black: hsf(0, 0%, 5%);
+  --background: hsl(0, 0%, 100%);
+  --block-background: hsl(0, 0%, 96%);
+  --output-background: hsl(0, 0%, 98%);
+}
+
+body {
+    font-size: 1rem;
+}
+
+.docs-brand {
+    margin-top: 0.5rem;
+}
+
+.docs-content > .container {
+    margin-top: 0.9rem;
+}
+
+ul {
+    list-style: disc;
+}
+
+.off-canvas .off-canvas-sidebar {
+    width: 14rem !important;
+}
+
+.off-canvas-content {
+    margin-top: 4rem;
+}
+
+.docs-sidebar .docs-nav {
+    width: 16rem !important;
+}
+
+pre {
+    font-variant-ligatures: none;
+}
+
+code {
+    font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono, monospace;
+    font-variant-ligatures: none;
+    font-size: 0.8rem;
+}
+
+pre code {
+    display: block;
+    background: var(--block-background) !important;
+    overflow: auto !important;
+    border: 1px solid #dbdbdb;
+    white-space: pre;
+    word-wrap: normal;
+}
+
+.code-output {
+    font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono, monospace;
+    font-size: 0.8rem;
+    background: var(--output-background) !important;
+    border: 1px dashed #dbdbdb;
+    padding: 1em;
+}
+
+th, td, tr {
+    border-left: none !important;
+    border-right: none !important;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 0.4rem;
+}
+
+th {
+    border: 1px solid lightgray;
+}
+
+table {
+    font-size: 0.7rem;
+    border-collapse: collapse;
+    line-height: 1.2em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+    white-space: pre;
+    white-space: pre;
+    word-wrap: normal;
+    word-wrap: normal;
+
+.context {
+    color: var(--black);
+}
+
+h1 {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+#copyright {
+    padding-top: 4rem;
+    padding-left: 0px;
+}
+
+ol {
+    list-style: decimal;
+}
+
+p {
+    margin-right: 0.4rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.menu .menu-item > a {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.1rem;
+}
+
+.menu-header {
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item.active a {
+    font-style: italic;
+    text-decoration: underline dotted;
+}
+
+.manifest-versions {
+    font-style: italic;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+img {
+    width: 100%;
+}
+
+@media (min-width: 480px) {
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+}
+
+#plutouiterminal {
+    font-family: JuliaMono-Regular, SFMono-Regular, DejaVu Sans Mono, monospace;
+    /* Without this, the output of BenchmarkTools looks wrong. */
+    line-height: 114%;
+    max-height: 300px;
+    overflow: auto;
+    white-space: pre;
+    color: white;
+    background-color: black;
+    border-radius: 6px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 15px;
+    display: block;
+    font-size: 14px;
+}
+
+table {
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
